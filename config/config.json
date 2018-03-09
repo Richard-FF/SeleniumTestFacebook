@@ -1,0 +1,6 @@
+{
+  	"osname": "windows",
+  	"baseurl": "https://www.facebook.com",
+  	"testdatafile": "testdata/testdata.json",
+  	"driverpath": "driver/"
+}

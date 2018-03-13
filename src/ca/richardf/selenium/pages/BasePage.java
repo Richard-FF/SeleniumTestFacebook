@@ -17,15 +17,15 @@ public class BasePage {
 	public BasePage(WebDriver driver){
 		Logger.logInfo("BasePage");
 		this.driver = driver;
-		wait = new WebDriverWait(driver, CommonConstants.TIME_3S);
-		PageFactory.initElements(new AjaxElementLocatorFactory(driver, CommonConstants.TIME_3S) , this);
+		wait = new WebDriverWait(driver, CommonConstants.TIME_10S);
+		PageFactory.initElements(new AjaxElementLocatorFactory(driver, CommonConstants.TIME_10S) , this);
 	}
 
 	public BasePage(WebDriver driver,final String title)
 	{
 		Logger.logInfo("BasePage title");
 	    this.driver=driver;
-	    wait = new WebDriverWait(driver, CommonConstants.TIME_3S);
+	    wait = new WebDriverWait(driver, CommonConstants.TIME_10S);
 	    try{
 	    	boolean flag = wait.until(new ExpectedCondition<Boolean>(){
 		  	@Override
@@ -36,8 +36,18 @@ public class BasePage {
 		  		}
 		  	});
 		}catch(TimeoutException te) {
-			throw new IllegalStateException("It's not expected page£¬current page is £º" + driver.getTitle());
+			throw new IllegalStateException("It's not expected page, current page is: " + getTitle());
 	    }
-	    PageFactory.initElements(new AjaxElementLocatorFactory(driver, CommonConstants.TIME_3S) , this);
+	    PageFactory.initElements(new AjaxElementLocatorFactory(driver, CommonConstants.TIME_10S) , this);
+	}
+	
+	public String getTitle() {
+		Logger.logInfo("BasePage getTitle");
+		return driver.getTitle();
+	}
+	
+	public String getInfo() {
+		Logger.logInfo("BasePage getInfo");
+		return driver.getPageSource().toString();
 	}
 }

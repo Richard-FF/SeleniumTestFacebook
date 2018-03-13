@@ -31,7 +31,7 @@ public class TestBase {
     	initTestData();
     	
 		driver = getDriver(browserName);
-        driver.manage().timeouts().implicitlyWait(CommonConstants.TIME_15S, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(CommonConstants.TIME_10S, TimeUnit.SECONDS);
         driver.navigate().to(baseUrl);
     }
 
@@ -63,6 +63,7 @@ public class TestBase {
 				Map<String, Object> prefs = new HashMap<String, Object>();
 				prefs.put(CommonConstants.CHROME_SETTING_NOTIFICATIONS, 2);				
 				prefs.put(CommonConstants.CHROME_SETTING_POPUPS, 1);
+				prefs.put(CommonConstants.CHROME_SETTING_LANGUAGE, "en");
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("prefs", prefs);				
 				driver = new ChromeDriver(options);

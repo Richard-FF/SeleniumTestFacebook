@@ -1,7 +1,8 @@
 {
 	"loginpage": {
-  		"user": "********",		
-  		"password": "********"
+		"title": "Facebook - Log In or Sign Up",
+  		"user": "123456@gmail.com",		
+  		"password": "12345678"
   	},
   	"homepage": {
   		"data1": "********",

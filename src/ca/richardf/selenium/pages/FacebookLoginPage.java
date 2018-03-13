@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
+
+import ca.richardf.selenium.utility.CommonConstants;
 import ca.richardf.selenium.utility.Logger;
 
 public class FacebookLoginPage extends BasePage{
@@ -29,11 +31,12 @@ public class FacebookLoginPage extends BasePage{
     	Logger.logInfo("FacebookLoginPage" + title );
     }
     
-    public void login(String username, String password) {
+    public void login(String username, String password) throws InterruptedException {
     	Logger.logInfo("FacebookLoginPage login"); 
     	
     	user_textbox.sendKeys(username);
     	password_textbox.sendKeys(password);
+    	Thread.sleep(CommonConstants.TIME_2000MS);
     	login_button.click();
     }
 }
